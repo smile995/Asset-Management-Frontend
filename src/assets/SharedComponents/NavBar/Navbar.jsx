@@ -14,7 +14,10 @@ const Navbar = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div className='flex items-center '>
+                    <img className='w-20 ' src="../../../../Public/Assets/Images/logo.png" alt="" />
+                    <h2 className='text-3xl font-bold text-amber-900'>ASMS</h2>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

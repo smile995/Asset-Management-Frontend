@@ -1,4 +1,5 @@
-# React + Vite
+# Asset Management System
+*  Assignment Category: assignment12_category_0006
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
