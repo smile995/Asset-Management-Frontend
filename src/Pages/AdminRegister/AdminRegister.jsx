@@ -2,7 +2,7 @@
 
 const AdminRegister = () => {
     return (
-        <div className="card lg:w-3/5 shadow-2xl bg-base-100 my-5 md:my-10  mx-auto">
+        <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
             <div>
                 <h2 className="text-4xl text-center font-bold md:mt-10">HR/Admin Registration Form</h2>
             </div>

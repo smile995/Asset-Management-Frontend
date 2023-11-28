@@ -2,7 +2,7 @@
 
 const EmployeeRegister = () => {
     return (
-        <div className="card  w-full max-w-md shadow-2xl bg-base-100 my-5 md:my-10  mx-auto">
+        <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
             <div>
                 <h2 className="text-4xl text-center font-bold md:mt-10">Employee Registration Form</h2>
             </div>
@@ -24,16 +24,16 @@ const EmployeeRegister = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="password" className="input input-bordered" required name="password" />
-                   
+
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Date of Birth</span>
                     </label>
-                    <input type="date"  className="input input-bordered" required name="date" />
-                   
+                    <input type="date" className="input input-bordered" required name="date" />
+
                 </div>
-                
+
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Register as Employee</button>
                 </div>
