@@ -1,6 +1,10 @@
-
+import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+    const handleSigninWithGoogle=()=>{
+
+    }
     const handleLogin = (e)=>{
         e.preventDefault();
         const form= e.target;
@@ -10,11 +14,14 @@ const Login = () => {
         console.log(user);
     }
     return (
-        <div className="card lg:w-1/2 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
+        <div className="card lg:w-1/2 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10 card-body  mx-auto">
             <div>
+                <Helmet>
+                    <title>Assets Management System | Login</title>
+                </Helmet>
                 <h2 className="text-4xl text-center font-bold md:mt-10">Please Login</h2>
             </div>
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleLogin} >
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -32,6 +39,11 @@ const Login = () => {
                     <button className="btn btn-primary">Login</button>
                 </div>
             </form>
+            <div className="divider divider-warning ">OR</div>
+            <div onClick={handleSigninWithGoogle} className=" flex items-center gap-5 text-3xl font-bold mb-5 justify-center btn btn-ghost btn-active">
+            <FcGoogle></FcGoogle>
+            <h2>Google</h2>
+            </div>
         </div>
     );
 };

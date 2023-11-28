@@ -1,12 +1,27 @@
 
 
 const AdminRegister = () => {
+    const handleAdminRegister=(e)=>{
+        e.preventDefault();
+        const form=e.target;
+        const name= form.name.value;
+        const company= form.company.value;
+        const logo= form.logo.value;
+        const email= form.email.value;
+        const password= form.password.value;
+        const date= form.date.value;
+        const select= form.select.value;
+        const admin={
+            name, company,logo, email, password, date,select
+        }
+        console.log(admin);
+    }
     return (
         <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
             <div>
                 <h2 className="text-4xl text-center font-bold md:mt-10">HR/Admin Registration Form</h2>
             </div>
-            <form className="card-body">
+            <form onSubmit={handleAdminRegister} className="card-body">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Full Name</span>
@@ -50,7 +65,7 @@ const AdminRegister = () => {
                         <span className="label-text">Package</span>
                     </label>
                     
-                    <select className="select select-bordered w-full ">
+                    <select name="select" className="select select-bordered w-full ">
                         <option disabled selected>Select your package</option>
                         <option>Han Solo</option>
                         <option>Greedo</option>
