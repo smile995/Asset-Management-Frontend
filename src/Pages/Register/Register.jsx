@@ -1,12 +1,22 @@
 
 
 const EmployeeRegister = () => {
+const handleEmployeeRegister=(e)=>{
+    e.preventDefault();
+    const form= e.target;
+    const name= form.name.value;
+    const email=form.email.value;
+    const password=form.password.value;
+    const date=form.date.value;
+    console.log(name,email,password,date);
+
+}
     return (
         <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
             <div>
                 <h2 className="text-4xl text-center font-bold md:mt-10">Employee Registration Form</h2>
             </div>
-            <form className="card-body">
+            <form onSubmit={handleEmployeeRegister} className="card-body">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Full Name</span>

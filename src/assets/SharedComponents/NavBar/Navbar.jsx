@@ -6,6 +6,7 @@ const Navbar = () => {
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/employeeRegister'}>Join as Employee</Link></li>
         <li><Link to={'/adminRegister'}>Join as HR/Admin</Link></li>
+        <li><Link to={'/login'}>Login</Link></li>
 
 
     </>
