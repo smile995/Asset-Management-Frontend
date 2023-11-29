@@ -24,9 +24,15 @@ const logOutUser=()=>{
 const signInWithGoogle=()=>{
     return signInWithGoogle(auth,provider)
 };
-const updateUser=(name,date)=>{
-    updateProfile(auth.currentUser, {
-        displayName: {name}, DateOfBirth: {date}
+const updateUserProfile=(name,date)=>{
+    return updateProfile(auth.currentUser, {
+        displayName: name, DateOfBirth: date
+      })
+      
+}
+const updateAdminProfile=(name,companyName,date,logo, )=>{
+    return updateProfile(auth.currentUser, {
+        displayName: name, DateOfBirth: date,CompanyName:companyName,logo:logo
       })
       
 }
@@ -59,7 +65,8 @@ useEffect(()=>{
         signInUser,
         logOutUser,
         signInWithGoogle,
-        updateUser
+        updateUserProfile,
+        updateAdminProfile
         
     }
     return (

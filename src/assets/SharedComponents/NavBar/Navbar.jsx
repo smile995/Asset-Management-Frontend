@@ -1,12 +1,21 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ContextAPI } from "../../../ContaxtAPI/AuthContext";
 
 
 const Navbar = () => {
+    const { user,logOutUser } = useContext(ContextAPI)
+    const handleLogOut =()=>{
+        logOutUser()
+    }
     const NavLink = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/employeeRegister'}>Join as Employee</Link></li>
         <li><Link to={'/adminRegister'}>Join as HR/Admin</Link></li>
-        <li><Link to={'/login'}>Login</Link></li>
+        {
+            user ? <li><Link onClick={handleLogOut}>Logout</Link></li> : <li><Link to={'/login'}>Login</Link></li>
+        }
+        {/* <li><Link to={'/login'}>Login</Link></li> */}
 
 
     </>

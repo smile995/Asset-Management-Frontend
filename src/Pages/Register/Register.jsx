@@ -1,16 +1,38 @@
+import { useContext } from "react";
+import { ContextAPI } from "../../ContaxtAPI/AuthContext";
 
 
 const EmployeeRegister = () => {
-const handleEmployeeRegister=(e)=>{
-    e.preventDefault();
-    const form= e.target;
-    const name= form.name.value;
-    const email=form.email.value;
-    const password=form.password.value;
-    const date=form.date.value;
-    console.log(name,email,password,date);
+    const { createUser, updateUserProfile, setUser} = useContext(ContextAPI)
+    const handleEmployeeRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const date = form.date.value;
+        console.log(name, email, password, date);
+        createUser(email, password)
+            .then(result => {
+                setUser(result.user)
+                // updating user information
+                updateUserProfile(name, date)
+                    .then(() => {
+                        console.log("user update with the name and date of birthday");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.log(error.code);
+                console.log(error.message);
+            })
 
-}
+
+
+
+    }
     return (
         <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
             <div>

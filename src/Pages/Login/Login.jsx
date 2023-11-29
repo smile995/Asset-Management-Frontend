@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
+import { ContextAPI } from "../../ContaxtAPI/AuthContext";
 
 const Login = () => {
+    const {signInUser}= useContext(ContextAPI)
     const handleSigninWithGoogle=()=>{
 
     }
@@ -10,8 +13,16 @@ const Login = () => {
         const form= e.target;
         const email= form.email.value;
         const password= form.password.value;
-        const user={email,password}
-        console.log(user);
+        // const user={email,password}
+        // console.log(user);
+        signInUser(email, password)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.log(error.code);
+            console.log(error.message);
+        })
     }
     return (
         <div className="card lg:w-1/2 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10 card-body  mx-auto">
