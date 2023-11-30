@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ContextAPI } from "../../ContaxtAPI/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 const EmployeeRegister = () => {
     const { createUser, updateUserProfile, setUser} = useContext(ContextAPI)
+    const navigate= useNavigate()
     const handleEmployeeRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -15,8 +17,10 @@ const EmployeeRegister = () => {
         createUser(email, password)
             .then(result => {
                 setUser(result.user)
+                form.reset();
+                navigate('/')
                 // updating user information
-                updateUserProfile(name, date)
+                updateUserProfile(name)
                     .then(() => {
                         console.log("user update with the name and date of birthday");
                     })

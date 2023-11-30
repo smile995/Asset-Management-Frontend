@@ -24,15 +24,15 @@ const logOutUser=()=>{
 const signInWithGoogle=()=>{
     return signInWithGoogle(auth,provider)
 };
-const updateUserProfile=(name,date)=>{
+const updateUserProfile=(name)=>{
     return updateProfile(auth.currentUser, {
-        displayName: name, DateOfBirth: date
+        displayName: name,
       })
       
 }
-const updateAdminProfile=(name,companyName,date,logo, )=>{
+const updateAdminProfile=(name,logo )=>{
     return updateProfile(auth.currentUser, {
-        displayName: name, DateOfBirth: date,CompanyName:companyName,logo:logo
+        displayName: name, photoURL:logo
       })
       
 }

@@ -2,8 +2,9 @@
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h1 className="text-3xl">error</h1>
+        <div className="h-[100vh] my-auto text-center flex justify-center items-center">
+        
+            <img src="../../../Public/Assets/Images/error.jpg" alt="" />
         </div>
     );
 };

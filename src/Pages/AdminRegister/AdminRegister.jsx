@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { ContextAPI } from "../../ContaxtAPI/AuthContext";
 
 
 const AdminRegister = () => {
+    const{createUser,setUser,updateAdminProfile}=useContext(ContextAPI)
     const handleAdminRegister=(e)=>{
         e.preventDefault();
         const form=e.target;
@@ -12,9 +15,29 @@ const AdminRegister = () => {
         const date= form.date.value;
         const select= form.select.value;
         const admin={
-            name, company,logo, email, password, date,select
+            name, company,date,select
         }
-        console.log(admin);
+
+        // console.log(admin);
+        createUser(email,password)
+        .then(result=>{
+            console.log(result.user);
+            setUser(result.user);
+            form.reset()
+            updateAdminProfile(name,logo)
+            .then(()=>{
+                console.log('user updated');
+            })
+            .catch(error=>{
+                console.log(error.code);
+                console.log(error.message);
+            })
+
+        })
+        .catch(error=>{
+            console.log(error.code);
+            console.log(error.message);
+        })
     }
     return (
         <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">

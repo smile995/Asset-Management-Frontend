@@ -4,14 +4,27 @@ import { ContextAPI } from "../../../ContaxtAPI/AuthContext";
 
 
 const Navbar = () => {
-    const { user,logOutUser } = useContext(ContextAPI)
-    const handleLogOut =()=>{
+    const { user, logOutUser } = useContext(ContextAPI)
+    const handleLogOut = () => {
         logOutUser()
     }
     const NavLink = <>
-        <li><Link to={'/'}>Home</Link></li>
-        <li><Link to={'/employeeRegister'}>Join as Employee</Link></li>
-        <li><Link to={'/adminRegister'}>Join as HR/Admin</Link></li>
+
+        {
+            user ? <>
+                <li><Link to={'/'}>Home</Link></li>
+                <li><Link to={'/adminRegister'}>My Assets</Link></li>
+                <li><Link to={'/adminRegister'}>My Team</Link></li>
+                <li><Link to={'/adminRegister'}>Reuest for an Assets</Link></li>
+                <li><Link to={'/adminRegister'}>Make a Custom Request</Link></li> </>
+
+                :
+                <>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/employeeRegister'}>Join as Employee</Link></li>
+                    <li><Link to={'/adminRegister'}>Join as HR/Admin</Link></li>
+                </>
+        }
         {
             user ? <li><Link onClick={handleLogOut}>Logout</Link></li> : <li><Link to={'/login'}>Login</Link></li>
         }
@@ -45,8 +58,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div >
-                    <img className='w-10 h-10 rounded-full' src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <div className="flex items-center gap-2">
+                    <h1>{user?.displayName}</h1>
+                    <img className='w-10 h-10 rounded-full' src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                    {/* <img className='w-10 h-10 rounded-full' src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
                 </div>
             </div>
         </div>

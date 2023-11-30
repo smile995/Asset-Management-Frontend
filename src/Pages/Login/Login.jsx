@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ContextAPI } from "../../ContaxtAPI/AuthContext";
 
 const Login = () => {
-    const {signInUser}= useContext(ContextAPI)
+    const {signInUser,setUser}= useContext(ContextAPI)
     const handleSigninWithGoogle=()=>{
 
     }
@@ -18,6 +18,8 @@ const Login = () => {
         signInUser(email, password)
         .then(result=>{
             console.log(result.user);
+            setUser(result.user)
+            form.reset()
         })
         .catch(error=>{
             console.log(error.code);
