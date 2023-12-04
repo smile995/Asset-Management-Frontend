@@ -13,10 +13,10 @@ const Navbar = () => {
         {
             user ? <>
                 <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/adminRegister'}>My Assets</Link></li>
-                <li><Link to={'/adminRegister'}>My Team</Link></li>
-                <li><Link to={'/adminRegister'}>Reuest for an Assets</Link></li>
-                <li><Link to={'/adminRegister'}>Make a Custom Request</Link></li> </>
+                <li><Link to={'/myAssets'}>My Assets</Link></li>
+                <li><Link to={'/myTeam'}>My Team</Link></li>
+                <li><Link to={'/requestAsset'}>Reuest for an Assets</Link></li>
+                <li><Link to={'/customRequest'}>Make a Custom Request</Link></li> </>
 
                 :
                 <>
@@ -28,7 +28,7 @@ const Navbar = () => {
         {
             user ? <li><Link onClick={handleLogOut}>Logout</Link></li> : <li><Link to={'/login'}>Login</Link></li>
         }
-        {/* <li><Link to={'/login'}>Login</Link></li> */}
+        
 
 
     </>
@@ -60,8 +60,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div className="flex items-center gap-2">
                     <h1>{user?.displayName}</h1>
-                    <img className='w-10 h-10 rounded-full' src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
-                    {/* <img className='w-10 h-10 rounded-full' src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
+                    <img className='w-10 h-10 rounded-full' src={user?.photoURL || "../../../../Public/Assets/Images/DefaultUser.png"} />
+                    
                 </div>
             </div>
         </div>

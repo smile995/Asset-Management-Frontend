@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ContextAPI } from "../../ContaxtAPI/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const EmployeeRegister = () => {
@@ -38,7 +39,10 @@ const EmployeeRegister = () => {
 
     }
     return (
-        <div className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
+        <div  className="card lg:w-3/5 shadow-2xl shadow-blue-800  border-blue-600 bg-gray-300 my-5 md:my-10  mx-auto">
+             <Helmet>
+                    <title>Assets Management System | Employee Register</title>
+                </Helmet>
             <div>
                 <h2 className="text-4xl text-center font-bold md:mt-10">Employee Registration Form</h2>
             </div>

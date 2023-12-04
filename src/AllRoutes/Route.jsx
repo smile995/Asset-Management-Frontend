@@ -9,6 +9,11 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import EmployeeRegister from "../Pages/Register/Register";
 import AdminRegister from "../Pages/AdminRegister/AdminRegister";
+import Payment from "../Pages/PaymentPage/Payment";
+import MyAsset from "../Pages/MyAssets/MyAsset";
+import MyTeam from "../Pages/MyTeam/MyTeam";
+import RequestAsset from "../Pages/RequestAsset/RequestAsset";
+import CustomRequest from "../Pages/CustomRequest/CustomRequest";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +35,26 @@ export const router = createBrowserRouter([
       {
         path:'/adminRegister',
         element:<AdminRegister></AdminRegister>
+      },
+      {
+        path:'/payment',
+        element:<Payment></Payment>
+      },
+      {
+        path:'/myAssets',
+        element:<MyAsset></MyAsset>
+      },
+      {
+        path:'/myTeam',
+        element: <MyTeam></MyTeam>
+      },
+      {
+        path:'/requestAsset',
+        element:<RequestAsset></RequestAsset>
+      },
+      {
+        path:'/customRequest',
+        element:<CustomRequest></CustomRequest>
       }
     ],
   },

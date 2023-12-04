@@ -2,11 +2,21 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 import { ContextAPI } from "../../ContaxtAPI/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const {signInUser,setUser}= useContext(ContextAPI)
+    const navigate=useNavigate()
+    const {signInUser,setUser,signInWithGoogle}= useContext(ContextAPI)
     const handleSigninWithGoogle=()=>{
-
+        signInWithGoogle()
+        .then(result=>{
+            setUser(result.user);
+            navigate('/')
+        })
+        .catch(error=>{
+            console.log(error.code);
+            console.log(error.message);
+        })
     }
     const handleLogin = (e)=>{
         e.preventDefault();
@@ -20,6 +30,7 @@ const Login = () => {
             console.log(result.user);
             setUser(result.user)
             form.reset()
+            navigate('/')
         })
         .catch(error=>{
             console.log(error.code);

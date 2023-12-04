@@ -1,12 +1,20 @@
 import  { createContext, useEffect, useState } from 'react';
 import app from '../../Public/Assets/Firebase/FIrebase';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 export const ContextAPI = createContext()
 const AuthContext = ({ children }) => {
     const auth = getAuth(app);
     const provider=new GoogleAuthProvider()
     const [user, setUser] = useState(null)
     const [loading,setLoading]=useState(true)
+    const [data,setData]=useState(null);
+    useEffect(()=>{
+        fetch('http://localhost:5000/requests')
+        .then(res=>res.json())
+        .then(data=>setData(data))
+    })
+
+
     
 const createUser=(email,password)=>{
     return createUserWithEmailAndPassword(auth,email,password)
@@ -22,7 +30,7 @@ const logOutUser=()=>{
 }
 
 const signInWithGoogle=()=>{
-    return signInWithGoogle(auth,provider)
+    return signInWithPopup (auth,provider)
 };
 const updateUserProfile=(name)=>{
     return updateProfile(auth.currentUser, {
@@ -36,16 +44,7 @@ const updateAdminProfile=(name,logo )=>{
       })
       
 }
-// useEffect(()=>{
-//     const unSubscribe=onAuthStateChanged(auth,currentUser=>{
-//         console.log('user auth state changes',currentUser);
-//         setUsers(currentUser);
-//         setLoading(false)
-//     })
-//     return()=>{
-//         unSubscribe();
-//     }
-// },[])
+
 
 useEffect(()=>{
     const unSubscribe= onAuthStateChanged(auth, currentUser=>{
@@ -66,7 +65,8 @@ useEffect(()=>{
         logOutUser,
         signInWithGoogle,
         updateUserProfile,
-        updateAdminProfile
+        updateAdminProfile,
+        data
         
     }
     return (

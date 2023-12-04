@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ContextAPI } from "../../ContaxtAPI/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 const AdminRegister = () => {
     const{createUser,setUser,updateAdminProfile}=useContext(ContextAPI)
+    const navigate=useNavigate()
     const handleAdminRegister=(e)=>{
         e.preventDefault();
         const form=e.target;
@@ -24,6 +26,7 @@ const AdminRegister = () => {
             console.log(result.user);
             setUser(result.user);
             form.reset()
+            navigate('/payment')
             updateAdminProfile(name,logo)
             .then(()=>{
                 console.log('user updated');
@@ -90,8 +93,9 @@ const AdminRegister = () => {
                     
                     <select name="select" className="select select-bordered w-full ">
                         <option disabled selected>Select your package</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        <option>Basic for 5$</option>
+                        <option>Standard for 8$</option>
+                        <option>primium for 15$</option>
                     </select>
 
                 </div>
