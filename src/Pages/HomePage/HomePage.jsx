@@ -4,6 +4,7 @@ import Banner from "../../Components/Banner/Banner";
 import PackageSection from "../../Components/PackagesSection/package";
 import Footer from "../../assets/SharedComponents/Footer/Footer";
 import Navbar from "../../assets/SharedComponents/NavBar/Navbar";
+import RequestSecton from "../../Components/CustomRequest/RequestSecton";
 
 const HomePage = () => {
 
@@ -14,6 +15,7 @@ const HomePage = () => {
             </Helmet>
             <Navbar></Navbar>
             <Banner></Banner>
+            <RequestSecton></RequestSecton>
             <About></About>
             <PackageSection></PackageSection>
             <Footer></Footer>
